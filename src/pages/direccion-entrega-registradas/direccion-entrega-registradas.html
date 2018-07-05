@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+  	<button  ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+  </button>
+    <ion-title>Direcciones registradas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+	<div *ngFor="let item of result_direccion_entrega_todas">	
+		<ion-card>
+			<ion-card-header text-wrap>
+				{{item.direccion}}
+				<p>
+				{{item.detalles_direccion}}	
+				</p>
+			</ion-card-header>
+			<ion-card-content>
+						<ion-grid>
+							<ion-row>
+								<ion-col col-5>
+								</ion-col>
+								<ion-col col-2></ion-col>
+								<ion-col col-5>
+									<button ion-button (click)="seleccionar_direccion(item)">Seleccionar</button>
+								</ion-col>
+							</ion-row>
+					</ion-grid>
+			</ion-card-content>
+		</ion-card>
+	</div>
+</ion-content>
+<ion-footer padding>
+	<button ion-button full color="boton_pedido_descripcion" (click)="nueva_direccion()">Nueva Direccion</button>
+</ion-footer>
+

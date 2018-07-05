@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+    <button  ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="card-background-page">
+  	<div *ngFor="let rubro of result_rubro">
+      
+      <ion-card (click)="get_establecimientos_id_rubro(rubro.id)">
+        <img class="m_agua" src="{{this.ruta_rubro}}{{rubro.imagen}}" />
+        <div class="card-title">{{rubro.descripcion}}</div>
+      </ion-card>
+     
+  	</div>
+</ion-content>
+<ion-footer class="fondo_footer">
+    <div class="fondo">
+      Direccion de entrega: 
+    </div>
+  <div padding>
+    {{result_direccion_entrega.direccion}}
+  </div>
+</ion-footer>

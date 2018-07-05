@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="color_nav_bar">
+    <ion-title>Productos en Cesta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+			<ion-grid>
+					<div align="center">
+						<ion-row>
+							<ion-col><ion-badge>Producto</ion-badge></ion-col>
+							<ion-col><ion-badge item-end>Cantidad</ion-badge></ion-col>
+							<ion-col><ion-badge item-end>Total</ion-badge></ion-col>
+							<ion-col><ion-badge item-end>Acciones</ion-badge></ion-col>
+						</ion-row>
+					</div>
+					<hr>
+			</ion-grid>	
+			<div *ngFor="let item of result_producto_seleccionado">
+						<div align="center">
+							<ion-row>
+								<ion-col>{{item.nombre}}</ion-col>
+								<ion-col>{{item.cantidad}}</ion-col>
+								<ion-col>{{item.total}}</ion-col>
+								<ion-col (click)="borrar_item(item)"><ion-badge>Borrar</ion-badge></ion-col>
+							</ion-row>
+						</div>
+			</div>
+</ion-content>
+<ion-footer>
+	<ion-footer>
+   <div align="center">
+		<button ion-button full color="danger" large icon-left (click)="cerrar()">
+				Cerrar
+		</button>
+	</div>
+</ion-footer>
+</ion-footer>

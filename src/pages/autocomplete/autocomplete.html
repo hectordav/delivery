@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color="color_nav_bar">
+    <ion-title>Ingrese su Direccion</ion-title>
+    <ion-searchbar [(ngModel)]="autocomplete.query" [showCancelButton]="true" (ionInput)="updateSearch()" (ionCancel)="dismiss()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let item of autocompleteItems" tappable (click)="chooseItem(item)">
+        <ion-icon name="pin"></ion-icon> {{  item.description }}
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+  	<ion-item no-lines>
+       <ion-icon name="ios-arrow-back" item-left></ion-icon> 
+       <ion-icon name="create" item-right (click)="guardar_direccion()"></ion-icon>
+    <ion-title>Direccion de entrega</ion-title>
+  	</ion-item>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!-- el component -->
+	<map></map>
+  <!-- el mapa escondido -->
+  <div style="display: none">
+    <div id="map"></div>
+  </div>
+</ion-content>
+<ion-footer class="toolbar-ios-button-font-size>">
+    <div class="fondo color_texto">
+      Direccion de entrega
+    </div>
+    <ion-item no-lines (click)="autocompletar()" text-wrap>
+        <ion-icon name="ios-pin" item-start></ion-icon>
+        {{address.place}}
+    </ion-item>
+    <div class="fondo" >
+      Detalles de la Direccion
+    </div>
+    <ion-item no-lines>
+      <ion-icon name="ios-checkmark-circle" item-start></ion-icon>
+        <ion-input name="txt_inicio" [(ngModel)]="address.det_direccion" placeholder="Piso, puerta, etc" text-input type="text"></ion-input>
+    </ion-item>
+ 
+  </ion-footer>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+    <ion-title>Establecimiento</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="card-background-page">
+  <div id="panel" style="display: none"></div>
+	<div *ngFor="let item of result_establecimiento">
+    <div *ngIf="item.id==1; else other_content">
+     	<div (click)="get_producto_id_establecimiento(item)">
+         <ion-card>
+        <img class="m_agua_abierto" src="{{this.ruta_rubro}}{{item.imagen}}" />
+        <div class="card-title">{{item.nombre}}</div>
+        <div class="card-subtitle">{{item.estado}}</div>
+        <div class="card-abajo">
+            <ion-row>
+              <ion-col>
+                <ion-icon name="car"></ion-icon> MNX {{item.comision}}
+              </ion-col>
+              <ion-col>
+                
+              </ion-col>
+              <ion-col>
+                 <ion-icon name="pin"></ion-icon> {{item.distancia}}
+              </ion-col>
+            </ion-row>
+        </div>
+          </ion-card>
+      </div>
+     </div>
+     <ng-template #other_content>
+     	 <ion-card>
+        <img class="m_agua_cerrado" src="{{this.ruta_rubro}}{{item.imagen}}" />
+        <div class="card-title">{{item.nombre}}</div>
+        <div class="card-subtitle">{{item.estado}}</div>
+        <div class="card-abajo">
+            <ion-row>
+              <ion-col>
+                <ion-icon name="car"></ion-icon> MNX {{item.comision}}
+              </ion-col>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                 <ion-icon name="pin"></ion-icon> {{item.distancia}}
+              </ion-col>
+            </ion-row>
+        </div>
+      </ion-card>
+     </ng-template>
+  </div> 
+</ion-content>

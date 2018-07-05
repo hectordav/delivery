@@ -1,0 +1,28 @@
+<!--
+  Generated template for the CalificarPedidoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+    <ion-title>Calificar Pedido</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+		<ion-label><h4 ion-text><strong>¿Como Calificarías nuestro servicio?</strong></h4></ion-label>
+<ion-range min="0" max="5" step="1" snaps="true" [(ngModel)]="data_calificacion_pedido.calificacion" color="amarillo">
+  <ion-icon range-left color="dark" name="star"></ion-icon>
+  <ion-icon range-right color="amarillo" name="star"></ion-icon>
+</ion-range>
+ <ion-item>
+ 	<ion-label floating  color="apphead">Quieres Dejar un comentario?</ion-label>
+ <ion-input type="text" autocomplete="off" color="apphead" [(ngModel)]="data_calificacion_pedido.comentario"></ion-input>
+ </ion-item>
+</ion-content>
+<ion-footer>
+	<button ion-button color="Primary" block (click)="guardar_calificacion()">
+		Guardar
+	</button>
+</ion-footer>

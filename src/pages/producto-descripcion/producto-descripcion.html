@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+    <ion-title>{{result_producto.nombre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+			<div align="center">
+					<img src="{{this.ruta_imagen}}{{result_producto.imagen}}"/>  
+			</div>
+		   	 <div align="center">
+		      	{{result_producto.nombre}}
+		   	 </div>
+		    <ion-grid>
+		    	<ion-row>
+		    		<ion-col col-8>
+		    			<p>{{result_producto.descripcion}}</p>
+		    		</ion-col>
+		    		<ion-col col-3>
+		    			<p>MNX {{result_producto.precio}}</p>
+		    		</ion-col>
+		    	</ion-row>
+		    </ion-grid>
+</ion-content>
+<ion-footer>
+   <div align="center">
+		<button ion-button color="boton_aceptar" full large icon-left (click)="agregar_det_pedido(result_producto)">
+			<ion-icon name="cart"></ion-icon>
+				Agregar
+			</button>
+	</div>
+</ion-footer>

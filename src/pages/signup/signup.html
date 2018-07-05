@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+    <ion-title>Registrese</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form (submit)="registro_usuario()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>CURP</ion-label>
+        <ion-input type="text" [(ngModel)]="cuenta.curp" name="curp"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="cuenta.nombre" name="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Direccion</ion-label>
+        <ion-input type="text" [(ngModel)]="cuenta.direccion" name="direccion"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label floating>Telefono</ion-label>
+        <ion-input type="text" [(ngModel)]="cuenta.telf" name="telf"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="cuenta.correo" name="correo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="cuenta.pass" name="pass"></ion-input>
+      </ion-item>
+      <div padding>
+        <button ion-button color="primary" block>Registrate</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+    <ion-title>Extras</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+		<div *ngFor="let item of result_extra_producto">
+			<ion-item>
+    	<ion-label>Extra: {{item.descripcion}}, Precio: {{item.precio}}</ion-label>
+    	<ion-checkbox [(ngModel)]="item_2[item.id]"></ion-checkbox>
+  </ion-item>
+		</div>
+	</ion-list>
+	<div align="center">
+		<button ion-button large icon-left (click)="agregar_extra()">
+			<ion-icon name="cart"></ion-icon>
+				Agregar
+		</button>
+	</div>
+</ion-content>
+<ion-footer>
+   <div align="center">
+		<button ion-button full large color="danger" (click)="cerrar()">
+			Cerrar
+		</button>
+	</div>
+</ion-footer>

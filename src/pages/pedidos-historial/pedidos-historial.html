@@ -1,0 +1,133 @@
+<!--
+  Generated template for the PedidosHistorialPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+  	<button  ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Historial de pedidos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-content padding class="fondo">
+	  <!-- el component lo escondo para que no muestre el mapa ojo-->
+	  <div *ngFor="let item of result_pedidos">
+    <ion-card>
+      <ion-card-header>
+      <div align="center">
+        <strong>Pedido: # {{item.id_pedido}}</strong>
+      </div> 
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+      <ion-list>
+        <div text-wrap>
+          <ion-row>
+            <ion-col col-1>
+             <ion-card-title>
+                <h5><ion-icon name="home" item-start></ion-icon></h5>
+             </ion-card-title>
+            </ion-col>
+            <ion-col>
+              <h5>{{item.nombre_usuario}}</h5>
+              <h5>
+              <strong>Direccion:</strong> {{item.direccion_entrega}}
+              </h5>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div text-wrap>
+          <ion-row>
+            <ion-col col-1>
+            <ion-card-title>
+              <h5>
+              <ion-icon name="ios-calendar" item-start></ion-icon>
+              </h5>
+            </ion-card-title>
+            </ion-col>
+            <ion-col>
+            <ion-card-title>
+            <h5><strong>Fecha:</strong> {{item.fecha | date:'dd/MM/yyyy'}}</h5>
+            </ion-card-title>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div text-wrap>
+          <ion-row>
+            <ion-col col-1>
+            <ion-card-title>
+              <h5>
+              <ion-icon name="clock" item-start></ion-icon>
+              </h5>
+            </ion-card-title>
+            </ion-col>
+            <ion-col>
+            <ion-card-title>
+            <h5><strong>Hora de entrega:</strong> {{item.hora_entrega}}</h5>
+            </ion-card-title>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div text-wrap>
+          <ion-row>
+            <ion-col col-1>
+            <ion-card-title>
+              <h5>
+              <ion-icon name="ios-stats" item-start></ion-icon>
+              </h5>
+            </ion-card-title>
+            </ion-col>
+            <ion-col>
+            <ion-card-title>
+            <h5><strong>status:</strong> {{item.status}}</h5>
+            </ion-card-title>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-list>
+      </ion-card-content>
+      
+      <div *ngIf="item.id_califica==null && item.status=='pedido entregado a cliente' ;else otro">
+        <hr>
+        <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div align="center">
+             <button ion-button small color="primary" icon-start (click)="ver_pedido(item)">
+              <ion-icon name='eye'></ion-icon>
+              Ver
+            </button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div align="center">
+             <button ion-button small color="primary" icon-start (click)="calificar_pedido(item)">
+              <ion-icon name='ios-checkmark'></ion-icon>
+              Calificar
+            </button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      </div>
+      <ng-template #otro>
+        <hr>
+        <div align="center">
+         <button ion-button small color="primary" icon-start (click)="ver_pedido(item)">
+          <ion-icon name='eye'></ion-icon>
+           Ver
+          </button>
+        </div>
+        
+        
+      <br>
+      </ng-template>
+    </ion-card>
+  </div>
+</ion-content>

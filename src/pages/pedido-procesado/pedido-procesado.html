@@ -1,0 +1,106 @@
+<!--
+  Generated template for the PedidoProcesadoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="color_nav_bar">
+    <ion-title>Procesar Pedido</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+<div class="fondo color_texto">
+	<strong>Detalles de Pedido</strong>
+</div>
+<div padding>
+	<ion-grid>
+		<div *ngFor="let item of result_det_pedido">
+			<ion-item no-lines>
+				<ion-row>
+					<ion-col col-1>{{item.cantidad}}</ion-col>
+					<ion-col col-8>
+						<strong>{{item.descripcion}}</strong>
+					</ion-col>
+					<ion-col col-2>MNX {{item.total | number : '1.2-2'}}
+					</ion-col>
+				</ion-row>
+			</ion-item>
+</div>
+	</ion-grid>	
+</div>
+<div class="fondo color_texto">
+	<strong>Hora de entrega</strong>
+</div>
+<div>
+	 <ion-item no-lines>
+	    <ion-label>Seleccione la Hora</ion-label>
+	    <ion-select type="number" [(ngModel)]="id_hora_entrega">
+	    	<ion-option *ngFor="let item_2 of result_hora_entrega" value="{{item_2.id}}">{{item_2.descripcion}}</ion-option>
+	    	
+	    </ion-select>
+  </ion-item>
+</div>
+<div class="fondo color_texto">
+	<strong>Direccion de entrega</strong>
+</div>
+	 <ion-item no-lines>
+	 	{{direccion}}, {{detalle_direccion}}
+  </ion-item>
+
+<div class="fondo color_texto">
+	<strong>Metodo de pago</strong>
+</div>
+		<div *ngIf="variable_metodo_pago==No; else other_content">
+	<ion-item no-lines>
+			<ion-label>Seleccione el metodo de pago</ion-label>
+	    <ion-select [(ngModel)]="id_metodo_pago">
+	      <ion-option value="2">Tarjeta debito/crédito</ion-option>
+	    </ion-select>
+  </ion-item>
+		</div>
+		<ng-template #other_content>
+			<ion-item no-lines>
+			<ion-label>Seleccione el metodo de pago</ion-label>
+	    <ion-select [(ngModel)]="id_metodo_pago">
+	      <ion-option value="1">Efectivo</ion-option>
+	      <ion-option value="2">Tarjeta debito/crédito</ion-option>
+	    </ion-select>
+			</ion-item>
+		</ng-template>
+
+</ion-content>
+<ion-footer>
+		<div class="fondo color_texto">
+		<ion-grid>
+			<ion-row>
+				<ion-col col-9>Total Articulos</ion-col>
+				<ion-col align="right">{{total_articulos}}</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-9>Sub total</ion-col>
+				<ion-col align="right">{{sub_total | number : '1.2-2'}}</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-9>Comision</ion-col>
+				<ion-col align="right">{{comision | number : '1.2-2'}}</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-9><strong>TOTAL ESTIMADO</strong></ion-col>
+				<ion-col align="right"><strong>{{total}}</strong></ion-col>
+			</ion-row>
+		</ion-grid>
+		</div>
+	<button ion-button full icon-left color="boton_aceptar" (click)="procesar_pedido()">
+		<div class="color_texto">
+		<ion-label color="light">
+  		<ion-icon name="checkmark-circle-outline" class="tamano_icon" color="light" icon-left></ion-icon>
+			Finalizar Pedido
+		</ion-label>
+			
+		</div>
+	</button>
+</ion-footer>	

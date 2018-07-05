@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar color="color_nav_bar">
+    <ion-title>Pedido</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+	<div class="fondo color_texto">
+	<strong>Cliente</strong>
+</div>
+<div align="center">
+	<strong>
+	<h4>
+		{{result_pedido.nombre_usuario}}
+	</h4>
+</strong>
+</div>
+<div class="fondo color_texto">
+	<strong>Direccion:</strong>
+</div>
+<div padding>
+	{{result_pedido.direccion_entrega}}
+</div>
+<div padding>
+	{{result_pedido.detalles_direccion_entrega}}
+</div>
+<div class="fondo color_texto">
+	<strong>Hora de entrega:</strong>
+</div>
+<div padding align="center">
+	<h4>{{result_pedido.hora_entrega}}</h4>
+</div>
+<div class="fondo color_texto">
+	<strong>Total:</strong>
+</div>
+<div padding align="center">
+	<h4>MNX {{result_pedido.total_precio | number : '1.2-2'}}</h4>
+</div>
+	<div class="fondo color_texto">
+	<strong>Detalles de Pedido</strong>
+</div>
+<div padding>
+	<ion-grid>
+		<div *ngFor="let item of result_det_pedido">
+			<ion-item no-lines>
+				<ion-row>
+					<ion-col col-1>{{item.cantidad}}</ion-col>
+					<ion-col col-8>
+						<strong>{{item.descripcion}}</strong>
+					</ion-col>
+					<ion-col col-2>MNX {{item.total | number : '1.2-2'}}
+					</ion-col>
+				</ion-row>
+			</ion-item>
+	 	</div>
+	</ion-grid>
+</div>
+<div *ngIf="variable_extra_pedido==1">
+		<div class="fondo color_texto">
+	<strong>Extras</strong>
+</div>
+	<div padding>
+	<ion-grid>
+		<div *ngFor="let item of result_extra_pedido">
+			<ion-item no-lines>
+				<ion-row>
+					<ion-col col-1>{{item.descripcion_extra}}</ion-col>
+				</ion-row>
+			</ion-item>
+	 	</div>
+	</ion-grid>
+</div>
+</div>
+
+<ion-fab right bottom>
+    <button ion-fab color="boton_pedido_descripcion"><ion-icon name="md-add"></ion-icon></button>
+    <ion-fab-list side="top">
+    	<div *ngIf="variable_token_repartidor==1">
+      <button ion-fab color="primary" (click)="mensaje_repartidor()"><ion-icon name="chatboxes"></ion-icon></button>	
+    	</div>
+      <button ion-fab color="primary" (click)="mensaje_establecimiento()"><ion-icon name="md-chatboxes"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+<ion-footer>
+
+</ion-footer>

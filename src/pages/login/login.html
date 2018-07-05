@@ -1,0 +1,26 @@
+<ion-header >
+
+  <ion-navbar color="color_nav_bar">
+    <ion-title>Iniciar Sesion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (submit)="login_manual()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-input type="email" [(ngModel)]="cuenta.correo" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" [(ngModel)]="cuenta.pass" name="password"></ion-input>
+      </ion-item>
+      <div padding>
+        <button ion-button color="boton_aceptar" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,48 @@
+page-establecimiento {
+	.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 10%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+  .card-abajo {
+    font-size: 1.0em;
+    position: absolute;
+    top:80%;
+    width: 100%;
+    color: #fff;
+  }
+  .m_agua_abierto{
+  	background-color: rgba(0,0,0,0.8);
+  	max-width: 100%;
+  	filter:brightness(0.6);
+    /* width: auto; */ /* el ancho */ 
+    /* height: auto; */ /* el alto */
+  }
+  .m_agua_cerrado{
+  	background-color: rgba(0,0,0,0.8);
+  	max-width: 100%;
+  	filter:brightness(0.3);
+    width: 330px; /* el ancho */ 
+    height: 180px; /* el alto */
+  }
+}
+
+}

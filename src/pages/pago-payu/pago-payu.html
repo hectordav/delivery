@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="color_azul_claro">
+    <ion-title>Pago por Tarjeta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="myForm" (ngSubmit)="pago_payu()" novalidate>
+<ion-card class="search_bar">
+<div class="fondo">
+			  <div align="center">
+        	<h1>Monto a pagar:</h1>
+        </div>  
+      <div align="center">
+      	<h1><strong>MNX {{datos_servicio.total}}</strong></h1>
+      </div>
+      <hr>
+</div>
+<div align="center">
+	<h3>Datos de Pago:</h3>
+</div>
+<br>
+	<ion-item>
+    <ion-input type="text" placeholder="Nombre Segun Tarjeta"  formControlName="txt_nombre_tarjeta" ></ion-input>
+  </ion-item>
+	<ion-item>
+        <ion-input type="number" placeholder="Numero De Tarjeta" pattern="[0-9]{13,16}" required  formControlName="txt_num_tarjeta"></ion-input>
+  </ion-item>
+      <ion-item>
+      	<ion-label float>Fecha de Expiracion</ion-label>
+        <ion-datetime  min="2017" max="2030" displayFormat="MM/YYYY" required  formControlName="dt_fecha_exp"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" placeholder="CVC" required formControlName="txt_cvc"></ion-input>
+      </ion-item>	
+</ion-card>
+  <div class="booking-info">
+     <button ion-button round color="boton">Pagar</button>
+  </div>  
+  </form>
+</ion-content>
